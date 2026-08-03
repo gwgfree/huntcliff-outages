@@ -11,6 +11,7 @@ permissions:
 jobs:
   poll:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
@@ -21,7 +22,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install requests
+        run: pip install requests mercantile polyline
 
       - name: Run poller
         run: python poll_outages.py
