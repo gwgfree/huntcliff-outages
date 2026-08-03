@@ -12,7 +12,7 @@ import os
 from datetime import datetime, timezone
 import requests
 
-BBOX = {"xmin": -84.375, "ymin": 33.978, "xmax": -84.345, "ymax": 34.012}
+BBOX = {"xmin": -84.375, "ymin": 33.9746, "xmax": -84.351, "ymax": 34.0001}
 
 FEED_URL = (
     "https://services.arcgis.com/BLN4oKB0N1YSgvY8/ArcGIS/rest/services/"
