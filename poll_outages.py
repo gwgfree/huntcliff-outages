@@ -36,7 +36,7 @@ KUBRA product used by many utilities nationwide, including Georgia Power.
 
 import json
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 import mercantile
 import polyline
@@ -54,8 +54,12 @@ HUNTCLIFF_BBOX = (-84.375, 33.9746, -84.351, 34.0001)  # west, south, east, nort
 START_ZOOM = 12   # one tile fully covers Huntcliff with margin at this zoom
 MAX_ZOOM = 14      # KUBRA's own ceiling — it groups anything closer than this
 
-HISTORY_PATH = os.path.join(os.path.dirname(__file__), "docs", "history.json")
+REPO_ROOT = os.path.dirname(__file__)
+HISTORY_PATH = os.path.join(REPO_ROOT, "docs", "history.json")
+DATA_DIR = os.path.join(REPO_ROOT, "data")
 HEADERS = {"User-Agent": "HuntcliffCurrentOutageTracker (personal project)"}
+
+PRUNE_AFTER_HOURS = 48  # how long a resolved outage stays in docs/history.json
 
 
 def load_history():
@@ -69,6 +73,29 @@ def save_history(history):
     os.makedirs(os.path.dirname(HISTORY_PATH), exist_ok=True)
     with open(HISTORY_PATH, "w") as f:
         json.dump(history, f, indent=2, sort_keys=True)
+
+
+def load_json(path, default):
+    if os.path.exists(path):
+        with open(path, "r") as f:
+            return json.load(f)
+    return default
+
+
+def save_json(path, obj):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, "w") as f:
+        json.dump(obj, f, indent=2, sort_keys=True)
+
+
+def archive(rec):
+    """Permanently store this outage's current snapshot under its start date —
+    this is the actual benchmark dataset, nothing is ever deleted from here."""
+    date = (rec.get("firstSeen") or datetime.now(timezone.utc).isoformat())[:10]
+    path = os.path.join(DATA_DIR, f"{date}.json")
+    day = load_json(path, {})
+    day[rec["id"]] = rec
+    save_json(path, day)
 
 
 def _get(url):
@@ -247,6 +274,21 @@ def main():
             rec["status"] = "Restored"
             rec["resolvedAt"] = now
             print(f"[RESTORED] {outage_id}")
+
+    # Archive every record's current snapshot (permanent benchmark dataset)
+    for rec in history.values():
+        archive(rec)
+
+    # Prune old resolved records out of docs/history.json (already safely
+    # archived above) so the live file stays small
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=PRUNE_AFTER_HOURS)
+    to_remove = [
+        oid for oid, rec in history.items()
+        if rec.get("status") == "Restored" and rec.get("resolvedAt")
+        and datetime.fromisoformat(rec["resolvedAt"]) < cutoff
+    ]
+    for oid in to_remove:
+        del history[oid]
 
     history["_lastChecked"] = now
     save_history(history)
