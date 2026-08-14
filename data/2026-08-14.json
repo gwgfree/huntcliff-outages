@@ -1,0 +1,18 @@
+{
+  "gpknEne|aO-None": {
+    "cause": "Unknown",
+    "county": "Fulton",
+    "customers": 4,
+    "estRestore": "ETR-NULL",
+    "firstSeen": "2026-08-14T23:55:55.037490+00:00",
+    "id": "gpknEne|aO-None",
+    "lastSeen": "2026-08-14T23:55:55.037490+00:00",
+    "lat": 33.97908,
+    "lon": -84.36328,
+    "outageType": "",
+    "resolvedAt": null,
+    "startDate": "2026-08-14T23:55:55.037490+00:00",
+    "status": "Active",
+    "utility": "Georgia Power"
+  }
+}
