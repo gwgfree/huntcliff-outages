@@ -1,5 +1,5 @@
 {
-  "_lastChecked": "2026-08-21T14:18:46.100833+00:00",
+  "_lastChecked": "2026-08-21T16:01:24.079341+00:00",
   "wdonExg|aO-None": {
     "cause": "Unknown",
     "county": "Fulton",
@@ -7,7 +7,7 @@
     "estRestore": "2026-08-21T16:45:00Z",
     "firstSeen": "2026-08-21T14:18:46.100833+00:00",
     "id": "wdonExg|aO-None",
-    "lastSeen": "2026-08-21T14:18:46.100833+00:00",
+    "lastSeen": "2026-08-21T16:01:24.079341+00:00",
     "lat": 33.99772,
     "lon": -84.36365,
     "outageType": "",
