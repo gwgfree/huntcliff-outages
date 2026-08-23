@@ -10,9 +10,9 @@
     "lat": 33.97546,
     "lon": -84.35997,
     "outageType": "",
-    "resolvedAt": null,
+    "resolvedAt": "2026-08-23T14:56:05.596330+00:00",
     "startDate": "2026-08-23T13:46:10.494225+00:00",
-    "status": "Active",
+    "status": "Restored",
     "utility": "Georgia Power"
   }
 }
