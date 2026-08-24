@@ -1,5 +1,5 @@
 {
-  "_lastChecked": "2026-08-24T19:44:26.586077+00:00",
+  "_lastChecked": "2026-08-24T21:03:48.051517+00:00",
   "syjnExp{aO-None": {
     "cause": "Unknown",
     "county": "Fulton",
@@ -11,9 +11,9 @@
     "lat": 33.97546,
     "lon": -84.35997,
     "outageType": "",
-    "resolvedAt": null,
+    "resolvedAt": "2026-08-24T21:03:48.051517+00:00",
     "startDate": "2026-08-23T13:46:10.494225+00:00",
-    "status": "Active",
+    "status": "Restored",
     "utility": "Georgia Power"
   }
 }
