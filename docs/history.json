@@ -1,5 +1,5 @@
 {
-  "_lastChecked": "2026-10-10T20:16:53.896649+00:00",
+  "_lastChecked": "2026-10-10T23:46:39.589216+00:00",
   "mconE|~}aO-None": {
     "cause": "Unknown",
     "county": "Fulton",
@@ -11,9 +11,9 @@
     "lat": 33.99751,
     "lon": -84.37247,
     "outageType": "",
-    "resolvedAt": null,
+    "resolvedAt": "2026-10-10T23:46:39.589216+00:00",
     "startDate": "2026-10-10T20:16:53.896649+00:00",
-    "status": "Active",
+    "status": "Restored",
     "utility": "Georgia Power"
   }
 }
