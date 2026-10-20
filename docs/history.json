@@ -1,3 +1,19 @@
 {
-  "_lastChecked": "2026-10-20T15:19:24.764109+00:00"
+  "__mnEbc|aO-None": {
+    "cause": "Unknown",
+    "county": "Fulton",
+    "customers": 4,
+    "estRestore": "2026-10-20T21:30:00Z",
+    "firstSeen": "2026-10-20T19:32:01.451444+00:00",
+    "id": "__mnEbc|aO-None",
+    "lastSeen": "2026-10-20T19:32:01.451444+00:00",
+    "lat": 33.98656,
+    "lon": -84.3629,
+    "outageType": "",
+    "resolvedAt": null,
+    "startDate": "2026-10-20T19:32:01.451444+00:00",
+    "status": "Active",
+    "utility": "Georgia Power"
+  },
+  "_lastChecked": "2026-10-20T19:32:01.451444+00:00"
 }
